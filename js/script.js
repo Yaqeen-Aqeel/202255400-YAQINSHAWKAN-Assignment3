@@ -174,5 +174,35 @@ if (contactForm && formMessage) {
         }, 3000);
     });
 }
+
+// ===== Inspirational Quotes =====
+const quoteBtn = document.getElementById("new-quote-btn");
+
+if (quoteBtn) {
+    quoteBtn.addEventListener("click", function () {
+
+        const quoteText = document.getElementById("quote-text");
+        const quoteAuthor = document.getElementById("quote-author");
+
+        quoteText.innerHTML = "Loading...";
+        quoteAuthor.innerHTML = "";
+
+        fetch("https://dummyjson.com/quotes/random")
+            .then(response => response.json())
+            .then(data => {
+                quoteText.innerHTML = `"${data.quote}"`;
+                quoteAuthor.innerHTML = `— ${data.author}`;
+            })
+            .catch(error => {
+                console.error("Error fetching quote:", error);
+                quoteText.innerHTML = "Oops! Could not load a quote.";
+                quoteAuthor.innerHTML = "";
+            });
+    });
+
+    // Load quote automatically when page opens
+    quoteBtn.click();
+}
+
+}); 
    
-});
