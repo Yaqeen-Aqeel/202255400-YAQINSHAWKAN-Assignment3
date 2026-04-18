@@ -346,3 +346,11 @@ footer {
     background-color: #ffdd59;
     color: #2f3c92;
 }
+
+/* ===== Visit Timer ===== */
+#visit-timer {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #ffdd59;
+}

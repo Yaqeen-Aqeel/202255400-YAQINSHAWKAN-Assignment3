@@ -204,5 +204,34 @@ if (quoteBtn) {
     quoteBtn.click();
 }
 
+
+// ===== Visit Duration Counter =====
+let seconds = 0;
+
+function updateTimer() {
+    seconds++;
+
+    const hrs = Math.floor(seconds / 3600);
+    const mins = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+
+    let display = "";
+
+    if (hrs > 0) {
+        display = `${hrs}h ${mins}m ${secs}s`;
+    } else if (mins > 0) {
+        display = `${mins}m ${secs}s`;
+    } else {
+        display = `${secs}s`;
+    }
+
+    const timerDisplay = document.getElementById("timer-display");
+    if (timerDisplay) {
+        timerDisplay.textContent = display;
+    }
+}
+
+setInterval(updateTimer, 1000);
+
 }); 
    
